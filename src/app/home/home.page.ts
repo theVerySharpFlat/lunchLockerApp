@@ -7,6 +7,14 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
+  progress:number = 0;
   constructor() {}
 
+  setProgress = () => {
+    this.progress += 10;
+
+    if(this.progress > 100){
+      this.progress = 0;
+    }
+  }
 }
