@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, NgZone } from '@angular/core';
+import { BleConnService } from '../bleConn/ble-conn.service';
+//import {BLE} from '@ionic-native/ble/ngx';
 
 @Component({
   selector: 'app-home',
@@ -7,14 +9,9 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  progress:number = 0;
   constructor() {}
 
-  setProgress = () => {
-    this.progress += 10;
 
-    if(this.progress > 100){
-      this.progress = 0;
-    }
-  }
+
+
 }

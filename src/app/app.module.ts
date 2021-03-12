@@ -9,6 +9,10 @@ import { AppRoutingModule } from './app-routing.module';
 
 import {NgCircleProgressModule} from 'ng-circle-progress';
 
+import { BLE } from '@ionic-native/ble/ngx';
+
+import { BleConnService } from './bleConn/ble-conn.service';
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -27,7 +31,11 @@ import {NgCircleProgressModule} from 'ng-circle-progress';
       maxPercent: 100
     })
   ],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  providers: [
+    BLE,
+    BleConnService,
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
