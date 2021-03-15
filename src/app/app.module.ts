@@ -13,6 +13,10 @@ import { BLE } from '@ionic-native/ble/ngx';
 
 import { BleConnService } from './bleConn/ble-conn.service';
 
+import { IonicStorageModule } from '@ionic/storage';
+
+import { SettingsStorageService } from './settings/settings-storage/settings-storage.service';
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -29,11 +33,13 @@ import { BleConnService } from './bleConn/ble-conn.service';
       animationDuration: 300,
       percent: 0,
       maxPercent: 100
-    })
+    }),
+    IonicStorageModule.forRoot()
   ],
   providers: [
     BLE,
     BleConnService,
+    SettingsStorageService,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent],

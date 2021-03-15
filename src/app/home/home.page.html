@@ -13,32 +13,5 @@
             <ion-title size="large" color="primary">Home</ion-title>
         </ion-toolbar>
     </ion-header>
-    <ion-card>
-        <ion-card-content class="ion-text-center">
-            <circle-progress [percent]="progress" [radius]="100" [outerStrokeWidth]="16" [innerStrokeWidth]="8" [outerStrokeColor]="'#2472f0'" [innerStrokeColor]="'#C7E596'" [animation]="true" [animationDuration]="300" [unitsFontSize]="'40'" [titleFontSize]="'40'"
-                [titleColor]="'#2472f0'" [unitsColor]="'#2472f0'" [subtitleFontSize]="'15'" [startFromZero]="false" [maxPercent]="100"></circle-progress>
-            <br/>
-            <ion-button >click me to add 10%!</ion-button>
-        </ion-card-content>
-    </ion-card>
-    <ion-card>
-      <ion-card-content>
-          <ion-item>
-            <ion-text><h1>Safe Status: {{safeStringStatus}}</h1></ion-text>
-          </ion-item>
-          <ion-item>
-            <ion-button (click)="readSafeLockStatus()" >
-              Click to read status
-            </ion-button>
-          </ion-item>
-          <ion-item>
-            <ion-input [(ngModel)]="InputValue" type="number" onIonChange="ev => writeValueToSafeLock(InputValue)">
 
-            </ion-input>
-            <ion-button (click)="writeValueToSafeLock(InputValue)" type="submit">
-              Send Data
-            </ion-button>
-          </ion-item>
-      </ion-card-content>
-    </ion-card>
 </ion-content>

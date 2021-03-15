@@ -1,3 +1,4 @@
+import { NgIf } from '@angular/common';
 import { Injectable, NgZone } from '@angular/core';
 import { BLE } from '@ionic-native/ble/ngx';
 
@@ -95,6 +96,18 @@ export class BleConnService {
             }
           )
         );
+    });
+  }
+
+  readRSSI = async(): Promise<number> => {
+    return new Promise<number>((resolve,reject) => {
+      this.ble.readRSSI(this.safeDevice.id).then((value: any) => {
+        //if fullfilled
+        //if(value) console.log(`recieved RSSI of \'${value}\' with type of ${typeof value}`);
+        resolve(value);
+      }, (reason) => {
+        reject(reason);
+      });
     });
   }
 }

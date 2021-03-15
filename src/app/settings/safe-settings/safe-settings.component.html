@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Safe Settings</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismissSafeSettings()" slot='end'>
+        <ion-icon slot="icon-only" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-content>
+      <ion-title>Bluetooth Connection</ion-title>
+
+      <ion-item *ngIf="!bleConn.connected">
+        <ion-item>
+          <ion-label>Status: Disconnected</ion-label>
+        </ion-item>
+      </ion-item>
+      <ion-item *ngIf="bleConn.connected">
+        <ion-label>Status: Connected</ion-label>
+        <ion-label>RSSI: {{safeRSSIValue}}</ion-label>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
