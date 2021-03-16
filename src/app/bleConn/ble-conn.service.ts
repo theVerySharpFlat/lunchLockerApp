@@ -1,6 +1,8 @@
 import { NgIf } from '@angular/common';
+import { Message } from '@angular/compiler/src/i18n/i18n_ast';
 import { Injectable, NgZone } from '@angular/core';
 import { BLE } from '@ionic-native/ble/ngx';
+import { ToastController } from '@ionic/angular';
 
 @Injectable({
   providedIn: 'root'
@@ -23,10 +25,23 @@ export class BleConnService {
 
   safeStringStatus:string = "";
 
-  constructor(private ble:BLE, private ngZone: NgZone) { }
+  constructor(private ble:BLE, private ngZone: NgZone, private toastController: ToastController) { }
 
   startConnect = async():Promise<void> => {
-    let promise = new Promise<void>((resolve, reject) => {
+    let promise = new Promise<void>(async (resolve, reject) => {
+      (await this.toastController.create({
+        cssClass: "status-toast",
+        message: "Scanning For Device . . .",
+        position: 'top',
+        buttons: [
+          {
+            text: 'dismiss',
+            role: 'cancel',
+            handler: () => {}
+          }
+        ]
+      }
+      )).present();
       this.ble.startScan([this.safeServiceUUID]).subscribe(
         device => this.onDeviceFound(device),
         error => console.log(error.message)
@@ -43,7 +58,24 @@ export class BleConnService {
     this.ngZone.run(() => {
       this.ble.autoConnect(
         this.safeDevice.id,
-        () => {console.log("connected");this.connected = true;this.readSafeLockStatus().then((value) => console.log(`safe status: ${value}`))},
+        async () => {
+          console.log("connected");
+          this.connected = true;
+          this.readSafeLockStatus().then((value) => console.log(`safe status: ${value}`));
+          (await this.toastController.create({
+            cssClass: "status-toast",
+            message: "Device Connected . . .",
+            position: 'top',
+            buttons: [
+              {
+                text: 'dismiss',
+                role: 'cancel',
+                handler: () => {}
+              }
+            ]
+          }
+          )).present();
+        },
         () => {console.log("disconnected");this.connected = false;}
       );
     }

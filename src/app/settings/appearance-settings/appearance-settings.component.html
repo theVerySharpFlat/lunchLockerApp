@@ -12,6 +12,6 @@
 <ion-content>
   <ion-item>
     <ion-label>Toggle Color Theme</ion-label>
-    <ion-toggle (ionChange)="onToggleColorTheme($event)" checked=[(storage.prefersDarkTheme)]></ion-toggle>
+    <ion-toggle (ionChange)="onToggleColorTheme($event)" [(checked)]="storage.prefersDarkTheme"></ion-toggle>
   </ion-item>
 </ion-content>

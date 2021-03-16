@@ -39,13 +39,27 @@ export class SettingsStorageService {
     }
   }
 
-  async loadSettings(): Promise<void> {
+  loadSettings(): Promise<void> {
+    return new Promise<void>((resolve,reject)=> {
+      //setTimeout(() => {
+        //sleep(10000);
+        console.log("loading done");
 
-    await this.storage.get('prefersDarkTheme')
-      .then((value) => this.prefersDarkTheme=value, (reason) => console.log(`ERROR SETTING DARK THEME: ${reason}`));
+        this.storage.get('prefersDarkTheme')
+        .then((value) => this.prefersDarkTheme=value, (reason) => console.log(`ERROR SETTING DARK THEME: ${reason}`));
 
-    return new Promise<void>((resolve, reject) => {
-      resolve();
+
+        resolve();
+     // },0);
+
     });
   }
+}
+
+let sleep = (milliseconds) => {
+  const date = Date.now();
+  let currentDate = null;
+  do {
+    currentDate = Date.now();
+  } while (currentDate - date < milliseconds);
 }

@@ -1,16 +1,16 @@
-import { Component, NgZone } from '@angular/core';
-import { BleConnService } from '../bleConn/ble-conn.service';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
-export class HomePage {
+export class HomePage implements OnInit {
 
   constructor() {}
 
-
+  ngOnInit(){
+  }
 
 
 }

@@ -8,6 +8,8 @@ import { TodoPageRoutingModule } from './todo-routing.module';
 
 import { TodoPage } from './todo.page';
 
+import { TodoItemComponent } from './todo-item/todo-item.component'
+
 @NgModule({
   imports: [
     CommonModule,
@@ -15,6 +17,6 @@ import { TodoPage } from './todo.page';
     IonicModule,
     TodoPageRoutingModule
   ],
-  declarations: [TodoPage]
+  declarations: [TodoPage, TodoItemComponent]
 })
 export class TodoPageModule {}

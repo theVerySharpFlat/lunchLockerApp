@@ -1,9 +1,19 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-title>Todo</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <app-todo-item [title]="'Go run around outside'"></app-todo-item>
 
+
+
+
+
+<ion-fab vertical="bottom" horizontal="end" slot="fixed">
+  <ion-fab-button>
+    <ion-icon name="add"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
 </ion-content>
