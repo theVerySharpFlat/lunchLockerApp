@@ -16,6 +16,7 @@ import { BleConnService } from './bleConn/ble-conn.service';
 import { IonicStorageModule } from '@ionic/storage';
 
 import { SettingsStorageService } from './settings/settings-storage/settings-storage.service';
+import { TodoStorageService } from './todo/todoStorage/todo-storage.service';
 
 @NgModule({
   declarations: [AppComponent],
@@ -40,6 +41,7 @@ import { SettingsStorageService } from './settings/settings-storage/settings-sto
     BLE,
     BleConnService,
     SettingsStorageService,
+    TodoStorageService,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent],

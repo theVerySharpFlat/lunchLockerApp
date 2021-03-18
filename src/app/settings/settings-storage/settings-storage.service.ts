@@ -10,16 +10,6 @@ export class SettingsStorageService {
   private renderer: Renderer2;
   constructor(protected storage: Storage, private rendererFactory: RendererFactory2 ) {
     this.renderer = this.rendererFactory.createRenderer(null, null);
-    this.storage.get('prefersDarkTheme')
-      .then(value => {
-        if(value != undefined){
-          this._prefersDarkTheme = value;
-          console.log(`in constructor, prefersDarkTheme is ${this.prefersDarkTheme}`)
-        }else {
-          this._prefersDarkTheme = false;
-        }
-      },
-        reason => console.log(reason));
   }
 
   get prefersDarkTheme(): Boolean{
@@ -39,20 +29,11 @@ export class SettingsStorageService {
     }
   }
 
-  loadSettings(): Promise<void> {
-    return new Promise<void>((resolve,reject)=> {
-      //setTimeout(() => {
-        //sleep(10000);
-        console.log("loading done");
+  async loadSettings() {
 
-        this.storage.get('prefersDarkTheme')
-        .then((value) => this.prefersDarkTheme=value, (reason) => console.log(`ERROR SETTING DARK THEME: ${reason}`));
+    this.prefersDarkTheme = await this.storage.get('prefersDarkTheme')
 
 
-        resolve();
-     // },0);
-
-    });
   }
 }
 

@@ -1,4 +1,16 @@
-<ion-list>
-  <ion-item button (click)="presentEditMenu()">Edit</ion-item>
-  <ion-item button (click)="presentViewMenu()">Details</ion-item>
-</ion-list>
+
+  <ion-item button (click)="presentEditMenu()" lines="none">
+    Edit
+    <ion-icon slot="start" name="pencil"></ion-icon>
+  </ion-item>
+  <ion-item button (click)="presentViewMenu()" lines="none">
+    Details
+    <ion-icon slot="start" name="information-circle" expand="full"></ion-icon>
+  </ion-item>
+  <ion-item button lines="none" (click)="onUserDeleteTodo()">
+    <ion-text color="danger">
+     Delete
+    </ion-text>
+    <ion-icon slot="start" color="danger"name="trash"></ion-icon>
+  </ion-item>
+

@@ -1,5 +1,4 @@
-import { NgIf } from '@angular/common';
-import { Message } from '@angular/compiler/src/i18n/i18n_ast';
+
 import { Injectable, NgZone } from '@angular/core';
 import { BLE } from '@ionic-native/ble/ngx';
 import { ToastController } from '@ionic/angular';
@@ -28,20 +27,7 @@ export class BleConnService {
   constructor(private ble:BLE, private ngZone: NgZone, private toastController: ToastController) { }
 
   startConnect = async():Promise<void> => {
-    let promise = new Promise<void>(async (resolve, reject) => {
-      (await this.toastController.create({
-        cssClass: "status-toast",
-        message: "Scanning For Device . . .",
-        position: 'top',
-        buttons: [
-          {
-            text: 'dismiss',
-            role: 'cancel',
-            handler: () => {}
-          }
-        ]
-      }
-      )).present();
+    let promise = new Promise<void>((resolve, reject) => {
       this.ble.startScan([this.safeServiceUUID]).subscribe(
         device => this.onDeviceFound(device),
         error => console.log(error.message)
@@ -62,19 +48,6 @@ export class BleConnService {
           console.log("connected");
           this.connected = true;
           this.readSafeLockStatus().then((value) => console.log(`safe status: ${value}`));
-          (await this.toastController.create({
-            cssClass: "status-toast",
-            message: "Device Connected . . .",
-            position: 'top',
-            buttons: [
-              {
-                text: 'dismiss',
-                role: 'cancel',
-                handler: () => {}
-              }
-            ]
-          }
-          )).present();
         },
         () => {console.log("disconnected");this.connected = false;}
       );
@@ -134,8 +107,6 @@ export class BleConnService {
   readRSSI = async(): Promise<number> => {
     return new Promise<number>((resolve,reject) => {
       this.ble.readRSSI(this.safeDevice.id).then((value: any) => {
-        //if fullfilled
-        //if(value) console.log(`recieved RSSI of \'${value}\' with type of ${typeof value}`);
         resolve(value);
       }, (reason) => {
         reject(reason);

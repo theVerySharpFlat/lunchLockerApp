@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import {PopoverController} from '@ionic/angular';
 import {TodoDropdownMenuComponent} from './todo-dropdown-menu/todo-dropdown-menu.component';
+import { Todo } from './../todoStorage/todo-storage.service';
 
 @Component({
   selector: 'app-todo-item',
@@ -9,7 +10,7 @@ import {TodoDropdownMenuComponent} from './todo-dropdown-menu/todo-dropdown-menu
 })
 export class TodoItemComponent implements OnInit {
 
-  @Input() title: string;
+  @Input() todoObj;
 
   constructor(private popoverController: PopoverController) { }
 
@@ -21,16 +22,13 @@ export class TodoItemComponent implements OnInit {
       component: TodoDropdownMenuComponent,
       event: ev,
       translucent: false,
-      id: "todoItemMenuPopover"
-    });
+      id: "todoItemMenuPopover",
+      componentProps: {todoObject: this.todoObj}
+    },);
 
     return await popover.present();
   }
 
-  sayHello = () => {
-    console.log("hello");
-
-  }
 
 
 }

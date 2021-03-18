@@ -9,6 +9,7 @@ import { TodoPageRoutingModule } from './todo-routing.module';
 import { TodoPage } from './todo.page';
 
 import { TodoItemComponent } from './todo-item/todo-item.component'
+import { NewTodoFormComponent } from './new-todo-form/new-todo-form.component';
 
 @NgModule({
   imports: [
@@ -17,6 +18,6 @@ import { TodoItemComponent } from './todo-item/todo-item.component'
     IonicModule,
     TodoPageRoutingModule
   ],
-  declarations: [TodoPage, TodoItemComponent]
+  declarations: [TodoPage, TodoItemComponent, NewTodoFormComponent]
 })
 export class TodoPageModule {}
