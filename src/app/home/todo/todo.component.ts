@@ -5,10 +5,10 @@ import { TodoStorageService } from './todoStorage/todo-storage.service';
 
 @Component({
   selector: 'app-todo',
-  templateUrl: './todo.page.html',
-  styleUrls: ['./todo.page.scss'],
+  templateUrl: './todo.component.html',
+  styleUrls: ['./todo.component.scss'],
 })
-export class TodoPage implements OnInit {
+export class TodoComponent implements OnInit {
 
   constructor(protected todoStorage: TodoStorageService, private modalController: ModalController) {
 
@@ -20,7 +20,7 @@ export class TodoPage implements OnInit {
   }
 
   async onUserCreateNewTodo(){
-
+    console.log("new modal");
     const modal = await this.modalController.create({
       component: NewTodoFormComponent,
       componentProps: { value: 123 }
@@ -29,7 +29,5 @@ export class TodoPage implements OnInit {
     await modal.present();
 
   }
-
-
 
 }

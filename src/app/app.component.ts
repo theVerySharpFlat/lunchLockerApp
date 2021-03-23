@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { BleConnService } from './bleConn/ble-conn.service';
 import { FitnessService } from './fitnessService/fitness.service';
+import { TodoStorageService } from './home/todo/todoStorage/todo-storage.service';
 import { SettingsStorageService } from './settings/settings-storage/settings-storage.service';
-import { TodoStorageService } from './todo/todoStorage/todo-storage.service';
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',

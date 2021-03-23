@@ -32,6 +32,7 @@ export class NewTodoFormComponent implements OnInit {
   }
 
   async onUserSubmit(){
+    console.log("onUserSubmit");
     console.log(this.form.value);
     this.todoStorage.addTodo({
       title:this.form.value.name,

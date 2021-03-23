@@ -16,11 +16,11 @@ import { BleConnService } from './bleConn/ble-conn.service';
 import { IonicStorageModule } from '@ionic/storage';
 
 import { SettingsStorageService } from './settings/settings-storage/settings-storage.service';
-import { TodoStorageService } from './todo/todoStorage/todo-storage.service';
 
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { FitnessService } from './fitnessService/fitness.service';
 import { Health } from '@ionic-native/health/ngx';
+import { TodoStorageService } from './home/todo/todoStorage/todo-storage.service';
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],

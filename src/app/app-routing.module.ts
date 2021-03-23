@@ -12,10 +12,6 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'todo',
-    loadChildren: () => import('./todo/todo.module').then( m => m.TodoPageModule)
-  },
-  {
     path: 'settings',
     loadChildren: () => import('./settings/settings.module').then( m => m.SettingsPageModule)
   },
