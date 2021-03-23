@@ -11,7 +11,6 @@ import { TodoViewComponent } from '../todo-view/todo-view.component';
 })
 export class TodoDropdownMenuComponent implements OnInit {
 
-  myString: string = "hello";
   todoObj: Todo;
 
   constructor(private modalController: ModalController, private popoverController: PopoverController,  private navParams:NavParams, private todoStorage: TodoStorageService, private alertController: AlertController) { }
@@ -27,7 +26,7 @@ export class TodoDropdownMenuComponent implements OnInit {
     });
     if(this.popoverController && callledFromChildClass) this.popoverController.dismiss("todoItemMenuPopover");
     await modal.present();
-    console.log(this.myString);
+
   }
 
   async presentViewMenu() {

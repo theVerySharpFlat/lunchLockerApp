@@ -12,8 +12,8 @@ export class TodoEditComponent implements OnInit {
 
   ngOnInit() {}
 
-  dismissEditMenu() {
-    this.modalController.dismiss();
+  async dismissEditMenu() {
+    await this.modalController.dismiss();
   }
 
 }

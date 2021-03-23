@@ -11,6 +11,11 @@ import { TodoItemComponent } from './todo/todo-item/todo-item.component';
 import { NewTodoFormComponent } from './todo/new-todo-form/new-todo-form.component';
 import { TodoEditComponent } from './todo/todo-item/todo-edit/todo-edit.component';
 import { TodoViewComponent } from './todo/todo-item/todo-view/todo-view.component';
+import { SettingsComponent } from './settings/settings.component';
+import { SafeSettingsComponent } from './settings/safe-settings/safe-settings.component';
+import { HistorySettingsComponent } from './settings/history-settings/history-settings.component';
+import { GoalsSettingsComponent } from './settings/goals-settings/goals-settings.component';
+import { AppearanceSettingsComponent } from './settings/appearance-settings/appearance-settings.component';
 
 
 @NgModule({
@@ -28,7 +33,12 @@ import { TodoViewComponent } from './todo/todo-item/todo-view/todo-view.componen
     TodoItemComponent,
     NewTodoFormComponent,
     TodoEditComponent,
-    TodoViewComponent
+    TodoViewComponent,
+    SettingsComponent,
+    SafeSettingsComponent,
+    HistorySettingsComponent,
+    GoalsSettingsComponent,
+    AppearanceSettingsComponent
   ]
 })
 export class HomePageModule {}

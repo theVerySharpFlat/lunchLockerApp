@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar color="primary">
+      <ion-title>Settings</ion-title>\
+      <ion-buttons slot="end">
+        <ion-button (click)="onUserSettingsDismiss()">
+          <ion-icon slot="icon-only" name="close"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-item color="secondary" button expand="full" class = "ion-text-start settings-item" (click)="openSafeSettings()">
+    <ion-icon name="shield-outline" slot="start"></ion-icon>
+    <ion-label>Safe</ion-label>
+    <ion-icon name="chevron-forward-outline" slot="end" ></ion-icon>
+  </ion-item>
+
+  <ion-item color="secondary" button expand="full" class = "ion-text-start settings-item" (click)="openGoalSettings()">
+    <ion-icon  name="flag-outline" slot="start"></ion-icon>
+    <ion-label>Goals</ion-label>
+    <ion-icon name="chevron-forward-outline" slot="end" ></ion-icon>
+  </ion-item>
+
+  <ion-item color="secondary" button expand="full" class = "ion-text-start settings-item" (click)="openHistorySettings()">
+    <ion-icon name="archive-outline" slot="start"></ion-icon>
+    <ion-label>History</ion-label>
+    <ion-icon name="chevron-forward-outline" slot="end" ></ion-icon>
+  </ion-item>
+
+  <ion-item color="secondary" button expand="full" class = "ion-text-start settings-item"  (click)="openAppearanceSettings()">
+    <ion-icon name="eye-outline" slot="start"></ion-icon>
+    <ion-label>Appearance</ion-label>
+    <ion-icon name="chevron-forward-outline" slot="end" ></ion-icon>
+  </ion-item>
+
+
+</ion-content>

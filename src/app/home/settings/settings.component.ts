@@ -7,16 +7,18 @@ import { SafeSettingsComponent } from './safe-settings/safe-settings.component';
 
 @Component({
   selector: 'app-settings',
-  templateUrl: './settings.page.html',
-  styleUrls: ['./settings.page.scss'],
+  templateUrl: './settings.component.html',
+  styleUrls: ['./settings.component.scss'],
 })
-export class SettingsPage implements OnInit {
-
+export class SettingsComponent implements OnInit {
   constructor(private modConn: ModalController) { }
 
   ngOnInit() {
   }
 
+  async onUserSettingsDismiss() {
+    await this.modConn.dismiss();
+  }
   openAppearanceSettings = async() => {
     const modal = await this.modConn.create({
       component: AppearanceSettingsComponent
@@ -48,4 +50,5 @@ export class SettingsPage implements OnInit {
 
     return await modal.present();
   }
+
 }
