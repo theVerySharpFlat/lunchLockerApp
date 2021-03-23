@@ -52,6 +52,6 @@ export class TodoStorageService {
 
 export interface Todo {
   title:string,
-  description?:string,
-  type:string
+  type:string,
+  target:number
 }

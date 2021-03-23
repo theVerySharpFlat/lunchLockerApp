@@ -1,4 +1,4 @@
-<ion-item color="secondary">
+<ion-item button color="secondary" (click)="presentViewMenu()">
   <ion-label>{{todoObj.title}}</ion-label>
   <ion-buttons>
     <ion-item button color="secondary"expand="full" (click)="presentPopover($event)" slot="end" lines="none" >

@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { FitnessService } from '../fitnessService/fitness.service';
+import { SettingsStorageService } from './settings/settings-storage/settings-storage.service';
 import { SettingsComponent } from './settings/settings.component';
+import { TodouiService } from './todo/todoui.service';
 
 @Component({
   selector: 'app-home',
@@ -10,10 +12,11 @@ import { SettingsComponent } from './settings/settings.component';
 })
 export class HomePage implements OnInit {
 
-
-  constructor(protected fitness:FitnessService, private modalController: ModalController) {}
+  screenWidth:number;
+  constructor(protected fitness:FitnessService, private modalController: ModalController, private settingsStorage: SettingsStorageService, private todoui: TodouiService) {}
 
   ngOnInit(){
+    this.screenWidth = window.innerWidth;
   }
 
   async onUserPresentSettings() {

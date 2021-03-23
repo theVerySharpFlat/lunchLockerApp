@@ -19,9 +19,8 @@ export class NewTodoFormComponent implements OnInit {
 
   ngOnInit() {
     this.form = this.fb.group({
-      name: this.fb.control(''),
-      description: this.fb.control(''),
-      goalType: this.fb.control('')
+      goalType: this.fb.control(''),
+      target: this.fb.control('')
     });
 
     //this.form.valueChanges.subscribe(console.log);
@@ -35,9 +34,9 @@ export class NewTodoFormComponent implements OnInit {
     console.log("onUserSubmit");
     console.log(this.form.value);
     this.todoStorage.addTodo({
-      title:this.form.value.name,
-      description: this.form.value.description,
-      type: this.form.value.goalType
+      title:`${this.form.value.goalType}: ${this.form.value.target}`,
+      type: this.form.value.goalType,
+      target: parseInt(this.form.value.target)
     });
     await this.modalController.dismiss();
   }

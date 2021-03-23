@@ -1,6 +1,4 @@
-<ion-item>
-  <ion-label>{{todoStorage.todos.length}}</ion-label>
-</ion-item>
+
 <div *ngIf="todoStorage.todos.length != 0" >
   <div *ngFor="let todo of todoStorage.todos">
     <app-todo-item [todoObj]="todo"></app-todo-item>
@@ -11,8 +9,3 @@
   Delete All
 </ion-button>
 
-<ion-fab vertical="bottom" horizontal="end" slot="fixed">
-  <ion-fab-button (click)="onUserCreateNewTodo()">
-    <ion-icon name="add"></ion-icon>
-  </ion-fab-button>
-</ion-fab>

@@ -1,7 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
-import {PopoverController} from '@ionic/angular';
+import {ModalController, PopoverController} from '@ionic/angular';
 import {TodoDropdownMenuComponent} from './todo-dropdown-menu/todo-dropdown-menu.component';
-import { Todo } from './../todoStorage/todo-storage.service';
+import { TodoEditComponent } from './todo-edit/todo-edit.component';
+import { TodoViewComponent } from './todo-view/todo-view.component';
 
 @Component({
   selector: 'app-todo-item',
@@ -12,7 +13,7 @@ export class TodoItemComponent implements OnInit {
 
   @Input() todoObj;
 
-  constructor(private popoverController: PopoverController) { }
+  constructor(private popoverController: PopoverController, private modalController: ModalController) { }
 
   ngOnInit() {}
 
@@ -29,6 +30,23 @@ export class TodoItemComponent implements OnInit {
     return await popover.present();
   }
 
+  async presentViewMenu() {
+    const modal = await this.modalController.create({
+    component: TodoViewComponent,
+    componentProps: { todoObject: this.todoObj, parent: this }
+    });
+    if(this.popoverController != undefined) this.popoverController.dismiss("todoItemMenuPopover");
+    await modal.present();
 
+  }
+  async presentEditMenu(callledFromChildClass:boolean) {
+    const modal = await this.modalController.create({
+    component: TodoEditComponent,
+    componentProps: { todoObject: this.todoObj}
+    });
+    if(this.popoverController && callledFromChildClass) this.popoverController.dismiss("todoItemMenuPopover");
+    await modal.present();
+
+  }
 
 }

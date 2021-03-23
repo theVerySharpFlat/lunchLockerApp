@@ -2,6 +2,9 @@
 // http://ionicframework.com/docs/theming/
 
 /** Ionic CSS Variables **/
+:export {
+  ion-color-primary: var(--ion-color-primary);
+}
 :root {
   /** primary **/
   --ion-color-primary: #4fa17f;
@@ -234,7 +237,3 @@
     --ion-card-background: #1e1e1e;
   }
 //}
-
-.alertYes{
-  color: var(--ion-color-danger) !important;
-}
