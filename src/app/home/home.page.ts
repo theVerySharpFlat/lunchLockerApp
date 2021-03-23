@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FitnessService } from '../fitnessService/fitness.service';
 
 @Component({
   selector: 'app-home',
@@ -7,7 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomePage implements OnInit {
 
-  constructor() {}
+
+  constructor(protected fitness:FitnessService) {}
 
   ngOnInit(){
   }

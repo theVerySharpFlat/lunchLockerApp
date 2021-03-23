@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalController } from '@ionic/angular';
+import { ModalController, NavParams } from '@ionic/angular';
+import { Todo } from '../../todoStorage/todo-storage.service';
+import { TodoDropdownMenuComponent } from '../todo-dropdown-menu/todo-dropdown-menu.component';
 
 @Component({
   selector: 'app-todo-view',
@@ -8,12 +10,24 @@ import { ModalController } from '@ionic/angular';
 })
 export class TodoViewComponent implements OnInit {
 
-  constructor(private modalController: ModalController) { }
+  todoObj: Todo = null;
+  parent:TodoDropdownMenuComponent = null;
 
-  ngOnInit() {}
+  constructor(private modalController: ModalController, private navParams: NavParams) { }
+
+  ngOnInit() {
+    this.todoObj = this.navParams.get("todoObject");
+    this.parent = this.navParams.get("parent");
+  }
 
   dismissViewMenu() {
     this.modalController.dismiss();
   }
+
+  onUserRequestEditTodo() {
+    this.parent.presentEditMenu(false);
+  }
+
+
 
 }

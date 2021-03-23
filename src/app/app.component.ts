@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BleConnService } from './bleConn/ble-conn.service';
+import { FitnessService } from './fitnessService/fitness.service';
 import { SettingsStorageService } from './settings/settings-storage/settings-storage.service';
 import { TodoStorageService } from './todo/todoStorage/todo-storage.service';
 @Component({
@@ -8,7 +9,7 @@ import { TodoStorageService } from './todo/todoStorage/todo-storage.service';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent implements OnInit{
-  constructor(private bleConn: BleConnService, private settingsStorage: SettingsStorageService, private todoStorage: TodoStorageService) {}
+  constructor(private bleConn: BleConnService, private settingsStorage: SettingsStorageService, private todoStorage: TodoStorageService, private fitness: FitnessService) {}
 
   ngOnInit(){
     console.time("ngOnInit: ");
@@ -16,6 +17,7 @@ export class AppComponent implements OnInit{
     this.bleConn.startConnect();
     this.settingsStorage.loadSettings();
     this.todoStorage.loadTodosFromLocal();
+    this.fitness.init();
     console.timeLog("ngOnInit: ");
     console.timeEnd();
     console.log("ngOnInit done");

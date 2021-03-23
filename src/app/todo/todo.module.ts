@@ -11,12 +11,17 @@ import { TodoPage } from './todo.page';
 import { TodoItemComponent } from './todo-item/todo-item.component'
 import { NewTodoFormComponent } from './new-todo-form/new-todo-form.component';
 
+
+import { FormBuilder, ReactiveFormsModule} from '@angular/forms';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    TodoPageRoutingModule
+    TodoPageRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   declarations: [TodoPage, TodoItemComponent, NewTodoFormComponent]
 })

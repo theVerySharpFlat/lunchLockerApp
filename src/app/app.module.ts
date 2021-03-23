@@ -18,6 +18,9 @@ import { IonicStorageModule } from '@ionic/storage';
 import { SettingsStorageService } from './settings/settings-storage/settings-storage.service';
 import { TodoStorageService } from './todo/todoStorage/todo-storage.service';
 
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { FitnessService } from './fitnessService/fitness.service';
+import { Health } from '@ionic-native/health/ngx';
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -25,6 +28,7 @@ import { TodoStorageService } from './todo/todoStorage/todo-storage.service';
     BrowserModule,
     IonicModule.forRoot(),
     AppRoutingModule,
+    ReactiveFormsModule,
     NgCircleProgressModule.forRoot({
       radius: 100,
       outerStrokeWidth: 16,
@@ -42,6 +46,10 @@ import { TodoStorageService } from './todo/todoStorage/todo-storage.service';
     BleConnService,
     SettingsStorageService,
     TodoStorageService,
+    FormsModule,
+    ReactiveFormsModule,
+    FitnessService,
+    Health,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent],

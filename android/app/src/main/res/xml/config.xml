@@ -6,5 +6,13 @@
     <param name="android-package" value="com.megster.cordova.ble.central.BLECentralPlugin"/>
   </feature>
 
+  <feature name="health">
+    <param name="android-package" value="org.apache.cordova.health.HealthPlugin"/>
+  </feature>
+
+  <feature name="Pedometer">
+    <param name="android-package" value="org.apache.cordova.pedometer.PedoListener"/>
+  </feature>
+
   
 </widget>

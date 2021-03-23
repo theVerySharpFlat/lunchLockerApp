@@ -1,7 +1,12 @@
 <ion-header>
   <ion-toolbar color="primary">
+
     <ion-title>View</ion-title>
+
     <ion-buttons slot="end">
+      <ion-button  expand="block" fill="clear" shape="round" slot="start" (click)="onUserRequestEditTodo(true)">
+        <ion-icon name="pencil"></ion-icon>
+      </ion-button>
       <ion-button (click)="dismissViewMenu()" slot="end">
         <ion-icon slot="icon-only" name="close"></ion-icon>
       </ion-button>
@@ -10,6 +15,12 @@
 </ion-header>
 <ion-content>
 <ion-item>
-  <ion-label>Awesome Label</ion-label>
+  <ion-label>Title: {{todoObj.title}}</ion-label>
+</ion-item>
+<ion-item>
+  <ion-label>Description: {{todoObj.description || ""}}</ion-label>
+</ion-item>
+<ion-item>
+  <ion-label>Type: {{todoObj.type}}</ion-label>
 </ion-item>
 </ion-content>
